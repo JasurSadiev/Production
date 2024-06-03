@@ -7,6 +7,9 @@ node_modules
 # Local development environment
 /.env.local
 
+!dist/
+!dist/**/*
+
 # macOS
 .DS_Store
 
