@@ -78,7 +78,7 @@ const AddNewUserForm = () => {
 					is_admin: Boolean(userInfo.isAdmin),
 					last_name: userInfo.lastName,
 					manager_id: Number(userInfo.manager_id),
-					password: "qwerty",
+
 					position: userInfo.position,
 					sap_id: userInfo.sapID,
 					shift_id: 1,
