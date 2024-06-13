@@ -23,22 +23,24 @@ const UserMenuCard = () => {
 			<h2 className='text-[0.8em] font-semibold mt-2'>
 				{auth.userInfo.first_name || ""} {auth.userInfo.last_name || ""}
 			</h2>
-			<p className='text-[0.6em] mt-1'>{auth.userInfo.email}</p>
+			<p className='text-[10px] mt-1'>{auth.userInfo.email}</p>
 			<div className='flex gap-x-6  text-[#9DACC3] ml-10 mt-4 ]'>
 				<img src={ProfileLogoSmall} alt='' />
 				<span className='text-[14px] hover:underline hover:text-[#767e8a]'>
 					Profile
 				</span>
 			</div>
-			<div className='flex gap-x-6 mt-1  ml-10  text-[#9DACC3]'>
-				<img src={SettingLogo} alt='' className='my-auto' />
-				<Link to={"/settings"} className='-mt-1'>
-					<span className='text-[14px] font-medium my-auto text-[#181819] hover:underline'>
-						Settings
-					</span>
-				</Link>
-			</div>
-			<hr className='mx-10' />
+			{auth.userInfo.is_admin && (
+				<div className='flex gap-x-6 mt-1  ml-10  text-[#9DACC3]'>
+					<img src={SettingLogo} alt='' className='my-auto' />
+					<Link to={"/settings"} className='-mt-1'>
+						<span className='text-[14px] font-medium my-auto text-[#181819] hover:underline'>
+							Settings
+						</span>
+					</Link>
+				</div>
+			)}
+			<hr className='mx-4' />
 			<div className='flex gap-x-6 ml-10 mt-2 mb-[5%] text-[#9DACC3]'>
 				<img src={SignOutLogo} alt='' />
 				<span className='text-[14px] hover:underline' onClick={logOut}>

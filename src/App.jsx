@@ -15,6 +15,8 @@ import UserSettings from "./Pages/UserSettings";
 import ListOfHolidays from "./Pages/HolidaysList";
 import SignUp from "./Pages/SignUp";
 import WorkingHours from "./Pages/WorkingHours";
+import Report from "./Pages/Report";
+import Users from "./Pages/Users";
 
 const ROLES = {
 	User: 2001,
@@ -52,7 +54,8 @@ function App() {
 					element={<TablePage currentTimesheetId={currentTimesheetId} />}
 				/>
 
-				<Route path={`settings/`} element={<UserSettings />} />
+				<Route path={`settings/`} element={<Users />} />
+				<Route path={`add-user/`} element={<UserSettings />} />
 				<Route path={`holidays/`} element={<ListOfHolidays />} />
 				<Route path={`working-hours/`} element={<WorkingHours />} />
 
@@ -64,6 +67,7 @@ function App() {
 						/>
 					}
 				/>
+				<Route path={"report/"} element={<Report />} />
 				<Route
 					path='manager/review'
 					element={

@@ -40,17 +40,14 @@ const AddRowModal = ({
 			console.log(error);
 		}
 	}
+	console.log(selectedGrant);
 
 	async function getOrders(grant_id) {
 		try {
-			const response = await axios.get(
-				ORDERSAPI,
-
-				{
-					headers: { "Content-Type": "application/json", grant_id: grant_id },
-					withCredentials: true,
-				}
-			);
+			const response = await axios.get(`${ORDERSAPI}?grant_id=${grant_id}`, {
+				headers: { "Content-Type": "application/json" },
+				withCredentials: true,
+			});
 			setOrders(response.data);
 		} catch (error) {
 			if (error.response && error.response.status === 401) {

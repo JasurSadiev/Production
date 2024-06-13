@@ -84,6 +84,8 @@ const Main = () => {
 		}
 	}, [accessToken]);
 
+	console.log(userInfo);
+
 	return (
 		<>
 			{loading && userInfo ? (
@@ -104,49 +106,48 @@ const Main = () => {
 					<div className='mt-[15%] ml-10 flex gap-x-10 text-center'>
 						<Link
 							to={"/my-timesheets"}
-							className='w-[200px] h-[200px] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
+							className='w-[15vw] h-[30vh] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
 						>
-							<p className='text-black mt-4'>My Timesheets</p>
-							<img src={TimesheetLogo} alt='' className='w-1/2 m-auto mt-4' />
+							<p className='text-black my-4'>My Timesheets</p>
+							<img src={TimesheetLogo} alt='' className='m-auto w-1/3' />
 						</Link>
 						<Link
 							to={"/pending-timesheets"}
-							className='w-[200px] h-[200px] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
+							className='w-[15vw] h-[30vh] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
 						>
 							<p className='text-black mt-4'>Inbox</p>
 							<span className='text-white font-medium text-[12px] bg-[#FA7E7E] rounded-full px-[12px] py-[6px] ml-[40%]'>
 								{pendings}
 							</span>
-							<img src={InboxLogo} alt='' className=' m-auto' />
+							<img src={InboxLogo} alt='' className='m-auto w-1/3' />
 						</Link>
-						{!userInfo.is_admin && (
-							<Link
-								to={"/pending-timesheets"}
-								className='w-[200px] h-[200px] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
-							>
-								<p className='text-black mt-4'>Report</p>
+						{userInfo.is_admin == true && (
+							<>
+								{" "}
+								<Link
+									to={"/report"}
+									className='w-[15vw] h-[30vh] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
+								>
+									<p className='text-black my-4'>Report</p>
 
-								<img src={ReportLogo} alt='' className=' mx-auto mt-[1.5em]' />
-							</Link>
+									<img src={ReportLogo} alt='' className=' m-auto w-1/3' />
+								</Link>
+								<Link
+									to={"/holidays"}
+									className='w-[15vw] h-[30vh] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
+								>
+									<p className='text-black my-4'>Holidays</p>
+									<img src={TimesheetLogo} alt='' className='m-auto w-1/3' />
+								</Link>
+								<Link
+									to={"/working-hours"}
+									className='w-[15vw] h-[30vh] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
+								>
+									<p className='text-black my-4'>Working Hours</p>
+									<img src={WorkingHoursIcon} alt='' className='m-auto w-1/3' />
+								</Link>
+							</>
 						)}
-						<Link
-							to={"/holidays"}
-							className='w-[200px] h-[200px] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
-						>
-							<p className='text-black mt-4'>Holidays</p>
-							<img src={TimesheetLogo} alt='' className='w-1/2 m-auto mt-4' />
-						</Link>
-						<Link
-							to={"/working-hours"}
-							className='w-[200px] h-[200px] text-[22px] shadow-md font-semibold my-auto bg-white rounded-2xl'
-						>
-							<p className='text-black mt-4'>Working Hours</p>
-							<img
-								src={WorkingHoursIcon}
-								alt=''
-								className='w-1/2 m-auto mt-4'
-							/>
-						</Link>
 					</div>
 				</div>
 			) : (
