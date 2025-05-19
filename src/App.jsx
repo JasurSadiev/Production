@@ -56,6 +56,7 @@ function App() {
 
 				<Route path={`settings/`} element={<Users />} />
 				<Route path={`add-user/`} element={<UserSettings />} />
+				
 				<Route path={`holidays/`} element={<ListOfHolidays />} />
 				<Route path={`working-hours/`} element={<WorkingHours />} />
 
